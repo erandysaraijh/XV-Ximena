@@ -1,0 +1,1539 @@
+/* Variables de Color y Tipografías */
+:root {
+  --bg-cream: #f9f1dd;
+  --pink-light: #f7c8d3;
+  --pink-rose: #b46a72;
+  --sage-green: #a8b58a;
+  --burgundy-dark: #7d0531;
+  --soft-arena: #f5e5d9;
+  
+  --font-script: 'Pinyon Script', cursive;     /* Cursiva para Ximena */
+  --font-heading: 'Playfair Display', serif;   /* Formal para MIS XV AÑOS */
+  --font-body: 'Montserrat', sans-serif;       /* Lectura general */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-cream);
+  color: var(--burgundy-dark);
+  overflow-x: hidden;
+}
+
+/* Header / Portada Principal */
+.hero-header {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  background-image: url('imagenes/portada.jpeg.jpeg');
+  background-position: 70% center; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  padding-top: 32px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Subtítulo 'MIS XV AÑOS' en blanco con Playfair Display */
+.hero-subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 450;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.65);
+  margin-top: -10px;
+  margin-bottom: 15px !important; /* Margen reducido para que 'Ximena' suba de posición */
+  display: block;
+}
+
+/* Nombre 'Ximena' en blanco con Pinyon Script y ajuste óptico de centrado */
+.hero-name {
+  font-family: var(--font-script) !important;
+  font-size: 5.8rem !important;
+  font-weight: 550 !important;
+  color: #ffffff !important;
+  text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.75);
+  line-height: 1;
+  display: block;
+  margin-top: -1px; /* Sube la palabra 'Ximena' acercándola a 'MIS XV AÑOS' */
+  margin-bottom: 15px; /* Distancia amplia y limpia respecto a las montañas de abajo */
+  transform: translateX(-12px); /* Compensación óptica para centrar perfectamente la cursiva */
+}
+
+/* Sección de Reproductor de Música */
+.music-section {
+  width: 100%;
+  background-color: var(--bg-cream);
+  padding: 20px 0 25px 0;
+  display: flex;
+  flex-direction: column; /* Alinea el texto sobre el reproductor */
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* Texto 'REPRODUCE MI CANCIÓN' con mayor tamaño y grosor */
+.music-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem; /* Tamaño más grande */
+  font-weight: 600;  /* Más grueso y firme */
+  letter-spacing: 4px; /* Mayor separación entre letras para dar elegancia */
+  text-transform: uppercase;
+  color: var(--burgundy-dark);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* Solo color de fondo para la sección de música sin alterar paddings ni layout */
+.music-section,
+.music-container,
+#musicSection {
+  background-color: #f5e5d9!important;
+}
+
+/* Franja Rectangular Estilo Cinta */
+.player-banner-container {
+width: 100%;
+height: 150px;
+max-width: 420px;
+background-color: var(--pink-rose); /* #b46a72 */
+padding: 20px 40px 40px 40px !important;
+display: flex;
+align-items: center;
+gap: 16px;
+box-shadow: 0 6px 14px rgba(125, 5, 49, 0.18);
+position: relative;
+z-index: 1; /* Queda detrás de la sección de fecha */
+overflow: visible !important;
+}
+
+.bar-play-btn,
+.bar-volume-btn {
+  background: transparent;
+  border: none;
+  color: var(--bg-cream);
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.bar-play-btn:hover,
+.bar-volume-btn:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
+}
+
+/* Barra de progreso principal */
+.bar-progress-container {
+  flex: 1;
+  height: 8px;
+  background-color: rgba(247, 200, 211, 0.4);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-progress {
+  width: 0%;
+  height: 100%;
+  background-color: var(--bg-cream);
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+/* Contenedor del volumen y emergente */
+.volume-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Pop-up flotante vertical */
+.volume-popup {
+  display: none;
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--burgundy-dark);
+  padding: 15px 8px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  height: 100px;
+  width: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.volume-popup.active {
+  display: flex;
+}
+
+/* Deslizador vertical */
+.volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 70px;
+  height: 4px;
+  background: rgba(247, 200, 211, 0.4);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  position: absolute;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-cream);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-cream);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* ==========================================
+   SECCIÓN FECHA DEL EVENTO (AJUSTE Y ENCUADRE EXACTO)
+   ========================================== */
+
+   /* Agrupador para subir todos los textos en bloque */
+.date-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+  /* DESPLAZAMIENTO DEL BLOQUE COMPLETO */
+  position: relative;
+  top: -5px;
+}
+
+
+.date-section {
+  width: 100%;
+  background-color: transparent;
+  padding: 0;
+  margin: -50px 0 0 0; /* Sube la sección sobre el reproductor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+ /* Capa Máxima y Desplazamiento Físico de la Sección Completa */
+  position: relative;
+  
+  z-index: 50 !important;
+  
+  overflow: visible !important;
+
+}
+
+
+/* Tarjeta / Marco a pantalla completa sin recortar ningún borde */
+.date-oval-card {
+  width: 105vw;
+  max-width: 100%;
+  height: 660px; /* Altura calibrada para encajar la ilustración sin estirarla de más */
+
+  
+  
+  /* IMAGEN DE FONDO Y REGLAS ANTI-DUPLICACIÓN */
+  background-image: url('imagenes/marco-fecha5.png') !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important; /* Prohíbe estrictamente la repetición */
+  background-size: 106% 100% !important; /* O usa 100% 100% para acoplar la imagen al alto */
+
+  /* Forzamos a que el contenedor NO muestre nada fuera de su alto de 660px */
+  overflow: hidden !important;
+
+  //* Sube la imagen para montarse sobre el reproductor de música */
+  margin-top: -50px; 
+
+  padding: 70px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+
+  /* CAPA SUPERIOR: El marco queda sobre el reproductor y sobre el verde */
+  position: relative;
+  z-index: 10 !important; 
+}
+
+/* ==========================================
+   ANIMACIÓN DE LA FECHA (CON MAYOR RETRASO)
+   ========================================== */
+
+/* Estado inicial del marco */
+.date-section .date-oval-card {
+  opacity: 0 !important;
+  transform: scale(0.92) !important;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease !important;
+}
+
+/* Estado inicial de los textos (con 0.6s de retraso para que aparezcan después) */
+.date-section .date-text-group {
+  opacity: 0 !important;
+  transform: translateY(30px) !important;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1) 1s, opacity 1s ease 1s !important;
+}
+
+/* Estados activados */
+.date-section.animate-in .date-oval-card {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.date-section.animate-in .date-text-group {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Texto 'Sábado' */
+.date-day-name {
+  font-family: 'Pinyon Script', cursive !important;
+  font-size: 4.5rem !important;
+  color: var(--burgundy-dark);
+  line-height: 1;
+  
+  margin-bottom: -5px !important;
+  margin-bottom: 0px;
+  z-index: 2;
+  transform: translateX(-8px);
+}
+
+/* Número 30 protagónico */
+.date-number {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 11rem !important;
+  font-weight: 500 !important;
+  color: var(--burgundy-dark);
+  line-height: -15px;
+  margin-top: -80px; 
+  z-index: 1;
+  
+}
+
+/* Texto 'enero' */
+.date-month {
+  font-family: 'Pinyon Script', cursive !important;
+  font-size: 7rem !important;
+  color: var(--burgundy-dark);
+  line-height: 1;
+  margin-top: -45px;
+  margin-bottom: 0px;
+  z-index: 2;
+  transform: translateX(-1px);
+}
+
+/* Año 2027 pegado a 'Enero' y desfasado a la derecha */
+.date-year {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 3px;
+  color: var(--burgundy-dark);
+  width: 100%;
+  text-align: right;
+  padding-right: 22%; /* Posiciona el 2027 en la zona clara derecha del óvalo */
+  margin-top: -30px;
+  z-index: 3;
+}
+
+
+/* Textos sobre el marco */
+.date-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  top: -5px;
+}
+
+/* ==========================================
+   2. SECCIÓN FRASE (CONTENEDOR VERDE)
+   ========================================== */
+.phrase-section {
+  width: 100%;
+  background-color: var(--sage-green, #a8b58a) !important; 
+  margin-top: -110px !important; 
+
+  /* AUMENTAMOS EL ESPACIADO INTERNO: 190px arriba y 100px abajo */
+  padding: 190px 25px 100px 25px !important;
+
+  position: relative !important;
+  z-index: 1 !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   EFECTO NOTABLE Y DRAMÁTICO PARA FRASE VERDE
+   ========================================== */
+
+/* 1. ESTADO INICIAL (Oculto, más abajo y con zoom reducido) */
+.phrase-section .phrase-container,
+.phrase-section p {
+  opacity: 0;
+  transform: translateY(80px) scale(0.88); /* Sube desde más abajo y expande */
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+  will-change: transform, opacity; /* Optimiza la fluidez en teléfonos */
+}
+
+/* 2. ESTADO ACTIVO (Al hacer scroll) */
+.phrase-section.animate-in .phrase-container,
+.phrase-section.animate-in p {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.phrase-container {
+  max-width: 380px;
+  text-align: center;
+}
+
+.phrase-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  margin: 0;
+
+  /* Transición permanente para la clase de JS */
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+
+  /* Estado por defecto cuando no ha entrado en viewport */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ESTADO ACTIVADO POR SCROLL (O respaldo para asegurarlo) */
+.phrase-section.animate-in .phrase-text,
+.phrase-section:hover .phrase-text {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ANIMACIÓN AUTOMÁTICA DE RESPALDO (Soporte directo CSS) */
+@keyframes fadeInUpPhrase {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.phrase-section .phrase-text {
+  animation: fadeInUpPhrase 1s ease forwards;
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   SECCIÓN CONTADOR Y ANIMACIÓN AL SCROLL
+   ========================================== */
+.countdown-section {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px !important; /* Desplaza 'Faltan' y los números hacia abajo */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Imagen de fondo (inicia desplazada hacia arriba) */
+.countdown-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('imagenes/contador.jpeg'); /* Tu imagen */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+
+  /* Estado inicial para la animación */
+  transform: translateY(-40px);
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease;
+}
+
+/* Oscurecimiento sutil sobre la foto para que resalten las letras blancas */
+.countdown-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+/* Capa de contenido: Textos y números */
+.countdown-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.6); /* Sombra intensa para contraste */
+
+  /* Estado inicial para la animación */
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease;
+}
+
+/* ESTADOS ACTIVADOS (Se aplican mediante JS al hacer scroll) */
+.countdown-section.animate-in .countdown-bg {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.countdown-section.animate-in .countdown-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Estilos tipográficos del contador */
+.countdown-title {
+  font-family: 'Playfair Display', 'Great Vibes', cursive, serif;
+  font-size: 4rem !important; /* Aumentado de 2.5rem a 3.5rem */
+  font-weight: 400;
+  margin-bottom: 10px;
+  font-style: italic;
+  color: #ffffff;
+}
+
+.timer-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px !important; /* Ajusta este valor (-15px o -20px) si quieres subirlo aún más */
+}
+
+
+.time-block span {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.7rem !important; /* Aumentado de 2.2rem a 2.8rem */
+  font-weight: 600;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.time-block label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem !important; /* Ligeramente más grande y legible */
+  letter-spacing: 1.5px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+.colon {
+  font-size: 2.2rem !important;
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+/* ==========================================
+   SECCIÓN INVITACIÓN Y PASES (FULL WIDTH SIN AIRE)
+   ========================================== */
+.invitation-tickets-section {
+  position: relative;
+  width: 100%;
+  /* Eliminamos el padding lateral e superior para pegar la imagen a los bordes */
+ padding-top: -50px !important; /* Da un respiro para que las flores no rocen el borde */
+  background-color: #f7f4ef !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* El lienzo ahora abarca el 100% de la pantalla móvil */
+.invitation-canvas-card {
+
+  width: 100% !important;
+  max-width: 100% !important; /* Expande al ancho completo */
+  aspect-ratio: 800 / 1300; /* Proporción nativa de Canva */
+  background-color: #f5e5d9!important; /* Fondo crema */
+  
+  background-image: url('imagenes/invitacion.png') !important;
+  background-size: cover !important; /* Cubre todo el ancho sin bordes blancos */
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  
+  /* Transición para la animación de scroll */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease;
+}
+
+/* ==========================================
+   POSICIONAMIENTO DE TEXTOS SOBRE LOS RECUADROS
+   ========================================== */
+.text-overlay {
+  position: absolute;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Acomodo de texto sobre la Invitación Principal (Padres) */
+.main-invitation-text {
+  top: 19%;
+  left: 20%;
+  width: 60%;
+  height: 48%;
+  padding: 5px;
+}
+
+/* 2. Bajamos el bloque de texto de la Madrina para centrarlo en el boleto */
+.ticket-madrina-text {
+  bottom: 3% !important; /* Reducimos el porcentaje para bajar todo el bloque */
+  right: -5%;
+  width: 58%;
+  height: 22%; /* Altura ajustada */
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Mantiene el título y nombre bien alineados */
+  align-items: center;
+}
+
+/* Opcional: Ajustes finos de margen para el título y el nombre del boleto */
+.script-title-small {
+  font-size: 2rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 2px !important;
+}
+
+.person-name-small {
+  font-size: 0.75rem !important;
+  margin-top: 2px !important;
+}
+
+
+/* ==========================================
+   EFECTO DINÁMICO PARA TEXTOS (INVITACIÓN Y BOLETO)
+   ========================================== */
+
+/* 1. ESTADO INICIAL (Ocultos, desplazados hacia abajo y ligeramente reducidos) */
+.main-invitation-text,
+.ticket-madrina-text {
+  opacity: 0;
+  transform: translateY(70px) scale(0.9);
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease;
+  will-change: transform, opacity;
+}
+
+/* 2. ESTADO ACTIVO (Al hacer scroll en la sección #invitationTickets) */
+.invitation-tickets-section.animate-in .main-invitation-text {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  transition-delay: 0.15s; /* Entra primero */
+}
+
+.invitation-tickets-section.animate-in .ticket-madrina-text {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  transition-delay: 0.45s; /* Entra justo después (efecto cascada) */
+}
+
+
+/* ==========================================
+   MOVER BENDICIÓN SIN DESPLAZAR LO DE ABAJO
+   ========================================== */
+
+.blessing-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #ffffff !important;
+  line-height: 1.3;
+  
+  /* Mantén sus márgenes estándar para no alterar la estructura */
+  margin-top: 0;
+  margin-bottom: 150px; 
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+
+  /* SUBE EL TEXTO DE FORMA INDEPENDIENTE */
+  transform: translateY(-5px); /* Ajusta este valor (-5px, -10px, -15px) para subirlo más o menos */
+}
+
+.script-title {
+  font-family: 'Pinyon Script', cursive, serif;
+  font-size: 2.5rem;
+  color: #ffffff !important;
+  margin: 2px 0 6px 0;
+  font-weight: 400;
+  margin-top: -140px !important; /* Margen negativo para subirlo hacia la bendición */
+  margin-bottom: 2px !important; /* Pega los nombres a este título */
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.script-title-small {
+  font-size: 2.5rem;
+  margin-bottom: 2px;
+}
+
+.person-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.80rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #ffffff !important;
+  line-height: 1.35;
+  margin: 4px 0;
+  
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.person-name-small {
+  font-size: 0.80rem;
+}
+
+.person-name .surname {
+  display: block;
+  font-size: 0.80rem;
+  margin-top: 2px;
+}
+
+.heart-container {
+  margin: 4px 0;
+}
+
+.heart-symbol {
+  font-size: 1.4rem !important;
+  color: #ffffff !important;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.35);
+  display: inline-block;
+}
+
+/* ACTIVACIÓN DE SCROLL */
+.invitation-tickets-section.animate-in .invitation-canvas-card {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ==========================================
+   1. SECCIÓN CUÁNDO Y DÓNDE (FORZAR VISIBILIDAD)
+   ========================================== */
+.location-section {
+  width: 100% !important;
+  padding: 60px 20px 40px 20px !important;
+  background-color: #f5e5d9!important; /* Fondo crema */
+  box-sizing: border-box !important;
+  text-align: center !important;
+  position: relative !important;
+  z-index: 10 !important;
+  display: block !important; /* Asegura que la sección no esté colapsada */
+  
+}
+
+.location-header-container {
+  max-width: 360px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  
+
+  
+
+}
+
+
+
+/
+
+/* Contenedor del ícono */
+.crown-icon-container {
+  margin-bottom: 12px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Imagen de la Tiara/Corona */
+.crown-img {
+  width: 80px !important;       /* Dimensión ideal para celular */
+  height: auto !important;      /* Mantiene la proporción original */
+  display: block !important;
+  margin: 0 auto !important;
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.08)); /* Sombra sutil opcional */
+}
+
+/* Título */
+.location-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  color: #7d0531 !important; /* Vino / Borgoña */
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  line-height: 1.25 !important;
+  margin: 0 0 18px 0 !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Descripción */
+.location-description {
+  font-family: 'Montserrat', sans-serif !important;
+  font-style: italic !important;
+  font-size: 0.88rem !important;
+  font-weight: 400 !important;
+  color: #5a4038 !important; /* Bronce/café cálido */
+  line-height: 1.6 !important;
+  margin: 0 auto !important;
+  max-width: 320px !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ==========================================
+   SECCIÓN CEREMONIA - FULL WIDTH Y AJUSTES
+   ========================================== */
+.event-card-section {
+  width: 100% !important;
+  padding: 0 !important; /* Elimina márgenes laterales para pantalla completa */
+  background-color: #f5e5d9 !important; /* Fondo crema unificado */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.event-canvas-card {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important; /* Expande al 100% del ancho del celular */
+  aspect-ratio: 800 / 1250 !important;
+  box-sizing: border-box !important;
+  
+  /* VERIFICA LA RUTA EXACTA DE TU IMAGEN */
+  background-image: url('imagenes/ceremonia6.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding-top: 55% !important; /* Desplaza el contenido debajo de la ilustración */
+  text-align: center !important;
+
+  /* --- REGLAS DE ANIMACIÓN AGREGADAS --- */
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease !important;
+  will-change: transform, opacity;
+  
+}
+
+/* ==========================================
+   ILUSTRACIÓN PARA LA SECCIÓN RECEPCIÓN
+   ========================================== */
+.event-canvas-card.reception-card {
+  background-image: url('imagenes/recepcion2.png') !important; /* Ajusta 'recepcion.png' por el nombre exacto de tu archivo en Canva */
+}
+
+/* Subir fecha y alinearla con el icono */
+.reception-card .event-info-text {
+  margin-top: -1px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Subir la hora (5:30) */
+.reception-card .time-digits {
+  margin-top: -12px !important;
+}
+
+/* Subir el P.M. */
+.reception-card .time-meridiem {
+  margin-top: -2px !important;
+}
+
+/* Subir la dirección para dar espacio a las flores */
+.reception-card .ceremony-address {
+  margin-top: 10px !important;
+}
+
+.photo-img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 12px !important; /* Bordes redondeados elegantes */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+  display: block !important;
+}
+
+/* --- ESTADO INICIAL OCULTO (Entra desde la izquierda) --- */
+.photo-section:not(.animate-in) .photo-container {
+  opacity: 0 !important;
+  transform: translateX(-120px) scale(0.9) !important;
+}
+
+/* --- ESTADO ACTIVO AL HACER SCROLL --- */
+.photo-section.animate-in .photo-container {
+  opacity: 1 !important;
+  transform: translateX(0) scale(1) !important;
+  transition-delay: 0.1s !important;
+}
+
+
+
+/* Título 'Ceremonia' */
+.event-script-title {
+  font-family: 'Pinyon Script', cursive, serif !important;
+  font-size: 2.8rem !important;
+  color: #5c554e !important;
+  font-weight: 400 !important;
+  margin: 0 0 4px 0 !important;
+  margin-top: -10px !important;
+  line-height: 1 !important;
+}
+
+/* Lugar */
+.event-place-name {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 0.80rem !important;
+  font-weight: 600 !important;
+  color: #5c554e !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.2px !important;
+  line-height: 1.35 !important;
+  margin: 0 0 20px 0 !important;
+  margin-top: 5px !important;
+  padding: 0 20px !important;
+}
+
+/* Filas con datos */
+.event-info-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 12px !important;
+  color: #5c554e !important;
+}
+
+
+
+/* Textos de fecha */
+.event-info-text {
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: left !important;
+
+  /* REGLAS CLAVE PARA ACOMODAR LA FECHA: */
+  margin-top: 17px !important;     /* BAJA la fecha a la altura del calendario */
+  margin-left: 60px !important;    /* DESPLAZA la fecha a la derecha liberando el ícono */
+  margin-bottom: 24px !important;  /* Separa de la hora */
+}
+  
+
+
+.day-name {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  color: #5c554e !important;
+  line-height: 1.2 !important;
+}
+
+.full-date {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  color: #5c554e !important;
+  line-height: 1.2 !important;
+}
+
+/* Muestra de hora */
+.time-row {
+  margin-bottom: 18px !important;
+}
+
+.time-display {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.time-digits {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  color: #5c554e !important;
+  letter-spacing: 1px !important;
+  line-height: 1 !important;
+
+/* REGLAS CLAVE PARA ACOMODAR LA HORA: */
+  margin-left: 23px !important;    /* Centra el '2:30 P.M.' a la derecha del reloj */
+  margin-top: -35px !important;  /* Empuja el botón más arriba */
+}
+
+
+.time-meridiem {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 0.58rem !important;
+  font-weight: 700 !important;
+  color: #5c554e !important;
+  writing-mode: sideways-lr !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  margin-left: 2px !important;
+  margin-top: -28px !important;  /* Empuja el botón más arriba */
+  line-height: 1 !important;
+}
+
+
+
+/* ==========================================
+   DIRECCIÓN Y ESPACIADOS EN CEREMONIA
+   ========================================== */
+
+/* Ajuste del bloque de hora para dejar aire a la dirección */
+.time-text-block {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: 45px !important;
+  margin-bottom: 12px !important; /* Reducido para dar paso a la dirección */
+}
+
+/* Estilos de la dirección escrita */
+.ceremony-address {
+  font-family: 'Montserrat', sans-serif !important;
+  font-style: italic !important;
+  font-size: 0.60rem !important;
+  font-weight: 400 !important;
+  color: #5c554e !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  margin: 0 auto 18px auto !important;
+  max-width: 280px !important; /* Ancho máximo para mantenerlo en 2 líneas elegantes */
+}
+
+/* Margen del contenedor del botón */
+.map-button-container {
+  margin-top: 4px !important;
+}
+
+
+/* Botón Ver Mapa */
+.map-button-container {
+  margin-top: 1px !important;
+}
+
+.map-btn {
+  display: inline-block !important;
+  padding: 8px 24px !important;
+  background-color: #a8b58a !important; /* Verde musgo suave */
+  color: #ffffff !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border-radius: 20px !important;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.3s ease !important;
+}
+
+.map-btn:active {
+  background-color: #8f9c73 !important;
+  transform: scale(0.98) !important;
+}
+
+/* ==========================================
+   ANIMACIÓN DE ENTRADA AL HACER SCROLL
+   ========================================== */
+
+/* 1. Transición preparada */
+.location-header-container,
+.event-canvas-card {
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease !important;
+  will-change: transform, opacity;
+}
+
+/* 2. Estado oculto inicial solo si no tiene la clase .animate-in */
+.location-section:not(.animate-in) .location-header-container,
+.event-card-section:not(.animate-in) .event-canvas-card {
+  opacity: 0 !important;
+  transform: translateY(60px) scale(0.93) !important;
+}
+
+/* 3. Estado activo cuando JavaScript le agrega .animate-in */
+.location-section.animate-in .location-header-container,
+.event-card-section.animate-in .event-canvas-card {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  transition-delay: 0.15s !important;
+}
+
+/* ==========================================
+   ENTRADA DE FOTO (DE IZQUIERDA A DERECHA)
+   ========================================== */
+
+.photo-section {
+  width: 100% !important;
+  background-color: #f5e5d9 !important;
+  padding: 0 !important; /* Elimina bordes crema alrededor */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important; /* Evita que la foto genere scroll horizontal al deslizar */
+}
+
+.photo-container {
+  width: 100% !important;
+  max-width: 100% !important; /* Extiende de borde a borde del celular */
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  
+  
+  /* Transición fluida de movimiento y opacidad */
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease !important;
+  will-change: transform, opacity;
+}
+
+.photo-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important; /* Muestra la foto completa en sus proporciones reales */
+  display: block !important;
+  border-radius: 0 !important; /* Quita esquinas redondeadas para abarcar toda la pantalla */
+  box-shadow: none !important;
+  object-fit: cover !important;
+}
+
+/* Estado inicial: Desplazada 80px a la izquierda y transparente */
+.photo-section:not(.animate-in) .photo-container {
+  opacity: 0 !important;
+  transform: translate3d(-100px, 0, 0) scale(0.95) !important;
+}
+
+/* Estado activo: Entra hacia la derecha a su lugar original */
+.photo-section.animate-in .photo-container {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+/* ==========================================
+   SECCIÓN DRESS CODE (ESTILOS Y FONDO)
+   ========================================== */
+
+/* Fondo específico de Canva */
+.event-canvas-card.dress-code-card {
+  background-image: url('imagenes/dresscode4.png') !important; /* Revisa que el nombre coincida con tu archivo */
+  padding-top: 48% !important; /* Alinea los textos en el centro del marco ovalado */
+}
+
+/* Texto 'Dress' (Pinyon Script) */
+.dress-code-card .dress-title-script {
+  font-family: 'Pinyon Script', cursive, serif !important;
+  font-size: 3.2rem !important;
+  color: #5a4038 !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  margin-top: 17px !important;
+  line-height: 0.9 !important;
+}
+
+/* Texto 'CODE' (Playfair Display) */
+.dress-code-card .dress-title-code {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.5rem !important;
+  color: #5a4038 !important;
+  font-weight: 600 !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  margin: 0 0 35px 0 !important; /* El margen inferior da espacio al adorno central de tu imagen */
+}
+
+/* Texto 'Formal' (Pinyon Script) */
+.dress-code-card .dress-formal {
+  font-family: 'Pinyon Script', cursive, serif !important;
+  font-size: 2.5rem !important;
+  color: #5a4038 !important;
+  font-weight: 400 !important;
+  margin: 0 0 12px 0 !important;
+  margin-top: 10px !important;
+ 
+  line-height: 1 !important;
+}
+
+/* Nota de color (Montserrat Italic) */
+.dress-code-card .dress-color-note {
+  font-family: 'Montserrat', sans-serif !important;
+  font-style: italic !important;
+  font-size: 0.58rem !important;
+  font-weight: 400 !important;
+  color: #5a4038 !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  margin-top: -5px !important;
+  max-width: 260px !important;
+}
+
+/* ==========================================
+   REGLA GENERAL PARA SECCIONES DE FOTO
+   ========================================== */
+
+/* Fondo crema y layout full width */
+.photo-section {
+  width: 100% !important;
+  background-color: #f5e5d9 !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.photo-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease !important;
+  will-change: transform, opacity;
+}
+
+.photo-img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 0 !important;
+  object-fit: cover !important;
+}
+
+/* Estado oculto inicial para CUALQUIER .photo-section sin .animate-in */
+.photo-section:not(.animate-in) .photo-container {
+  opacity: 0 !important;
+  transform: translate3d(-100px, 0, 0) scale(0.95) !important;
+}
+
+/* Estado activo cuando la sección entra en pantalla */
+.photo-section.animate-in .photo-container {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+/* ==========================================
+   SECCIÓN SUGERENCIA DE REGALOS
+   ========================================== */
+
+/* Fondo específico exportado de Canva */
+.event-canvas-card.gifts-card {
+  background-image: url('imagenes/sobres3.png') !important; /* Revisa que el nombre coincida con tu archivo */
+  padding-top: 42% !important; /* Ajuste para dar espacio al arco superior */
+}
+
+/* Contenedor y SVG del texto curvo */
+.gifts-arch-container {
+  width: 100% !important;
+  max-width: 260px !important;
+  margin: 0 auto 2-5px auto !important; /* Empuja ligeramente el título 'Regalos' hacia arriba */
+  margin-top: -7px !important;
+  display: block !important;
+}
+
+.gifts-arch-svg {
+  width: 100% !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Texto curvo SVG (Playfair Display) */
+.gifts-arch-text {
+  font-family: 'Playfair ', serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  fill: #ffffff !important; /* Color del texto en SVG */
+  letter-spacing: 5px !important;
+  text-transform: uppercase !important;
+}
+
+/* Título 'Regalos' (Pinyon Script) */
+.gifts-card .gifts-main-title {
+  font-family: 'Pinyon Script', cursive, serif !important;
+  font-size: 3.2rem !important;
+  color: #ffffff !important;
+  font-weight: 400 !important;
+  margin: 0 0 10px 0 !important;
+  margin-top: -5px !important;
+  line-height: 0.9 !important;
+}
+
+/* Frase descriptiva (Montserrat Italic) */
+.gifts-card .gifts-phrase {
+  font-family: 'Montserrat', sans-serif !important;
+  font-style: italic !important;
+  font-size: 0.70rem !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+  margin: 0 auto 15px auto !important;
+  margin-top: 5px !important;
+  max-width: 250px !important;
+}
+
+/* Opciones '- SOBRE O REGALO -' (Playfair Display) */
+.gifts-card .gifts-options-badge {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  margin: 0 0 12px 0 !important;
+  margin-top: -3px !important;
+}
+
+/* Nota inferior (Montserrat Italic) */
+.gifts-card .gifts-note {
+  font-family: 'Montserrat', sans-serif !important;
+  font-style: italic !important;
+  font-size: 0.6rem !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  margin-top: 2px !important;
+  max-width: 240px !important;
+}
+
+/* ==========================================
+   SECCIÓN TE ESPERO (SIN FONDO DE FLORES)
+   ========================================== */
+
+/* Remueve la imagen de fondo y deja la tarjeta blanca limpia */
+.event-canvas-card.wait-card {
+  background-image: none !important;
+  background-color: #f5e5d9 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+  padding: 80px 20px 30px 20px !important;
+
+  /* --- ANIMACIÓN DE ENTRADA POR SCROLL --- */
+  opacity: 0 !important;
+  transform: translateY(30px) scale(0.97) !important;
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease !important;
+  will-change: transform, opacity;
+}
+
+/* Estado activo cuando la sección entra en pantalla */
+.animate-in .event-canvas-card.wait-card,
+.wait-card.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+
+/* Imagen de la corona/tiara */
+.wait-tiara-img {
+  width: 70px !important;
+  height: auto !important;
+  margin: 0 auto 10px auto !important;
+  display: block !important;
+}
+
+/* Título 'TE ESPERO' (Playfair Display) */
+.wait-card .wait-title-main {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  color: #7d0531 !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  margin: 0 0 4px 0 !important;
+}
+
+/* Título 'En el gran día' (Pinyon Script) */
+.wait-card .wait-title-script {
+  font-family: 'Pinyon Script', cursive, serif !important;
+  font-size: 2.8rem !important;
+  color: #7d0531 !important;
+  font-weight: 400 !important;
+  margin: 0 0 18px 0 !important;
+  margin-top: 5px !important;
+  line-height: 0.9 !important;
+}
+
+/* Mensaje en 3 líneas (Montserrat Italic) */
+.wait-card .wait-message {
+  font-family: 'Montserrat', sans-serif !important;
+  font-style: italic !important;
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+  color: #5a4038 !important;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  margin: 0 auto 25px auto !important;
+  margin-top: 5px !important;
+  max-width: 270px !important;
+}
+
+/* Contenedor del Botón */
+.rsvp-button-container {
+  margin-top: 5px !important;
+}
+
+/* Botón Confirmar Asistencia */
+.rsvp-btn {
+  display: inline-block !important;
+  padding: 10px 28px !important;
+  background-color: #a8b58a !important; /* Verde musgo suave acorde a la paleta */
+  color: #ffffff !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border-radius: 22px !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.3s ease !important;
+}
+
+.rsvp-btn:active {
+  background-color: #8f9c73 !important;
+  transform: scale(0.98) !important;
+}
+
+/* ==========================================
+   SECCIÓN FINAL DE CIERRE (SUBIR ILUSTRACIÓN Y TEXTOS)
+   ========================================== */
+
+/* 1. Ajuste del contenedor de la sección completa */
+#footerSection {
+  margin-top: -200px !important; /* Elimina el gran hueco crema entre el botón y la tarjeta */
+  padding-top: 0 !important;
+}
+
+/* 2. Ajuste de la tarjeta y la ilustración de Canva */
+.event-canvas-card.footer-card {
+  min-height: auto !important; /* Rompe la altura alta por defecto */
+  aspect-ratio: auto !important; /* Desactiva la proporción 800/1250 en esta tarjeta */
+  height: 480px !important; /* Le da la altura exacta para ver el semicírculo completo */
+  background-image: url('imagenes/border.png') !important;
+  background-position: center top !important; /* Alinea la ilustración desde arriba */
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important; /* Permite posicionar los textos libremente */
+  align-items: center !important;
+  padding-top: 0 !important;
+}
+
+/* 3. Posicionamiento exacto de 'MIS XV AÑOS' (Arriba de la línea) */
+.footer-card .footer-xv-text {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  
+  /* MARGEN PARA SUBIR/BAJAR EL TEXTO SOBRE EL SEMICÍRCULO: */
+  margin-top: 230px !important; /* Si quieres que suba aún más, baja este número (ej. 210px) */
+  margin-bottom: 25px !important; /* Distancia para librar la línea con diamantes */
+}
+
+/* 4. Posicionamiento de 'Ximena' (Abajo de la línea) */
+.footer-card .footer-name-text {
+  font-family: 'Pinyon Script', cursive, serif !important;
+  font-size: 5rem !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  margin-top: 20px !important;
+  line-height: 0.9 !important;
+}

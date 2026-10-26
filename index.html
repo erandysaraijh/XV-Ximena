@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis XV Años - Ximena</title>
+  
+ <!-- Carga de fuentes de Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header / Portada Principal -->
+  <header class="hero-header">
+    <div class="hero-content">
+      <p class="hero-subtitle">M I S &nbsp; X V &nbsp; A Ñ O S</p>
+      <h1 class="hero-name">Ximena</h1>
+    </div>
+  </header>
+
+  <!-- Sección de Reproductor de Música -->
+  <section class="music-section">
+    <p class="music-title">REPRODUCE MI CANCIÓN</p>
+
+    <div class="player-banner-container">
+      <button id="musicToggle" class="bar-play-btn" aria-label="Reproducir música">
+        <i id="musicIcon" class="fas fa-play"></i>
+      </button>
+      
+      <div class="bar-progress-container" id="progressContainer">
+        <div class="bar-progress" id="progressBar"></div>
+      </div>
+
+      <div class="volume-wrapper">
+        <button id="volumeBtn" class="bar-volume-btn" aria-label="Ajustar volumen">
+          <i id="volumeIcon" class="fas fa-volume-high"></i>
+        </button>
+
+        <div id="volumePopup" class="volume-popup">
+          <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="1" class="volume-slider">
+        </div>
+      </div>
+
+      <audio id="bgMusic" loop>
+        <source src="musica/cancion.mp3.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+  </section>
+
+  
+    
+
+<!-- Sección Fecha del Evento -->
+<section class="date-section">
+  <div class="date-oval-card">
+    
+    <!-- CONTENEDOR AGRUPADOR CON LOS DATOS -->
+    <div class="date-text-group">
+      <p class="date-day-name">Sábado</p>
+      <h2 class="date-number">30</h2>
+      <p class="date-month">enero</p>
+      <span class="date-year">2027</span>
+    </div>
+
+  </div> <!-- Cierre correcto del div date-oval-card -->
+</section> <!-- Cierre correcto de date-section -->
+
+<!-- CONTENEDOR VERDE -->
+<section class="phrase-section" id="phraseSection">
+  <div class="phrase-container">
+    <p class="phrase-text">
+      Los momentos felices de la vida se vuelven más maravillosos cuando tenemos la suerte de compartirlos con los familiares y amigos más queridos. Por esa razón quiero que estes conmigo en este día tan especial.
+    </p>
+  </div>
+</section> 
+
+<!-- SECCIÓN CONTADOR -->
+<section class="countdown-section" id="countdownSection">
+  <!-- Fondo de la foto que bajará ligeramente -->
+  <div class="countdown-bg"></div>
+
+  <!-- Contenido (Texto y Números) que subirá al hacer scroll -->
+  <div class="countdown-content">
+    <h2 class="countdown-title">Faltan</h2>
+    
+    <div class="timer-display">
+      <div class="time-block">
+        <span id="days">00</span>
+        <label>DÍAS</label>
+      </div>
+      <span class="colon">:</span>
+      <div class="time-block">
+        <span id="hours">00</span>
+        <label>HORAS</label>
+      </div>
+      <span class="colon">:</span>
+      <div class="time-block">
+        <span id="minutes">00</span>
+        <label>MINUTOS</label>
+      </div>
+      <span class="colon">:</span>
+      <div class="time-block">
+        <span id="seconds">00</span>
+        <label>SEGUNDOS</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECCIÓN INVITACIÓN Y PASES (IMAGEN ÚNICA CANVA)
+     ========================================== -->
+<section class="invitation-tickets-section" id="invitationTickets">
+  
+  <div class="invitation-canvas-card">
+    
+    <!-- BLOQUE 1: TEXTOS SOBRE LA INVITACIÓN PRINCIPAL -->
+<div class="text-overlay main-invitation-text">
+  <p class="blessing-text">
+    Con la bendición de Dios y el<br> 
+    amor de mi familia, te invito a<br>
+    celebrar mis XV años.
+  </p>
+
+  <h2 class="script-title">Mis Padres</h2>
+
+  <div class="names-group">
+    <p class="person-name">
+      LILIANA LORETO<br>
+      <span class="surname">TORRES PALMA</span>
+    </p>
+    
+    <div class="heart-container">
+      <span class="heart-symbol">♥</span>
+    </div>
+
+    <p class="person-name">JUAN GARCÍA MAYA</p>
+  </div>
+</div>
+
+    <!-- BLOQUE 2: TEXTOS SOBRE EL BOLETO/MADRINA -->
+    <div class="text-overlay ticket-madrina-text">
+      <h2 class="script-title script-title-small">Mi Madrina</h2>
+
+      <div class="names-group">
+        <p class="person-name person-name-small">MARCELA GARCÍA<br>
+        <span class="surname">MAYA</span>
+      </p>
+      </div>
+    </div>
+
+  </div> <!-- CIERRA .invitation-canvas-card -->
+</section> <!-- CIERRA .invitation-tickets-section -->
+
+
+<!-- 2. SECCIÓN CUÁNDO Y DÓNDE (SIN TEXTOS EXTRA DE MADRINA) -->
+<section class="location-section" id="locationSection">
+  <div class="location-header-container">
+    
+ <!-- ÍCONO DE TIARA (IMAGEN PNG DE CANVA) -->
+<div class="crown-icon-container">
+  <img src="imagenes/tiara.png" alt="Corona" class="crown-img">
+</div>
+
+    <!-- Título en 2 líneas -->
+    <h2 class="location-title">
+      ¿CUÁNDO Y<br>DÓNDE?
+    </h2>
+
+    <!-- Descripción en 4 líneas -->
+    <p class="location-description">
+      A continuación encontrarás el horario y<br>
+      ubicación del evento, así como un botón<br>
+      directo a Google Maps para que te sea<br>
+      más fácil llegar al lugar.
+    </p>
+
+  </div>
+</section>
+
+<!-- ==========================================
+     SECCIÓN CEREMONIA (FULL WIDTH)
+     ========================================== -->
+<section class="event-card-section" id="ceremonySection">
+  <div class="event-canvas-card ceremony-card">
+    
+    <!-- TÍTULO PRINCIPAL -->
+    <h3 class="event-script-title">Ceremonia</h3>
+
+    <!-- NOMBRE DEL LUGAR -->
+    <h4 class="event-place-name">
+      BASÍLICA DE NUESTRA<br>SEÑORA DE LOS REMEDIOS
+    </h4>
+
+    <!-- FILA DE FECHA -->
+    <div class="event-info-row date-row">
+      <div class="event-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+      </div>
+      <div class="event-info-text">
+        <span class="day-name">Sábado</span>
+        <span class="full-date">30 de enero, 2027</span>
+      </div>
+    </div>
+
+    <!-- FILA DE HORA -->
+    <div class="event-info-row time-row">
+      <div class="event-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+      </div>
+      <div class="time-display">
+        <span class="time-digits">2:30</span>
+        <span class="time-meridiem">P.M.</span>
+      </div>
+    </div>
+
+    <!-- DIRECCIÓN ESCRITA (NUEVO) -->
+    <p class="ceremony-address">
+      C. Zaragoza 1, Los Remedios, 53400<br>
+      Naucalpan de Juárez, Méx.
+    </p>
+
+
+    <!-- BOTÓN VER MAPA -->
+    <div class="map-button-container">
+      <a href="https://maps.app.goo.gl/RRtR41VxxaMgU2V77" target="_blank" rel="noopener noreferrer" class="map-btn">
+        Ver mapa
+      </a>
+    </div>
+</section>
+
+<!-- Sección Nueva de la Foto (INDEPENDIENTE Y ABAJO) -->
+<section id="photoSection" class="photo-section">
+  <div class="photo-container">
+    <img src="imagenes/xvaños.jpeg" alt="Fotografía" class="photo-img">
+  </div>
+</section>
+
+<!-- SECCIÓN RECEPCIÓN (Misma estructura exacta que Ceremonia) -->
+<section id="receptionSection" class="event-card-section">
+  <div class="event-canvas-card reception-card">
+    <h2 class="event-script-title">Recepción</h2>
+    <p class="event-place-name">SALÓN CASA RASA<br>(LIENZO CHARRO <br>NAUCALPAN)</p>
+    
+    <div class="event-info-row">
+      <div class="event-info-text">
+        <span class="day-name">Sábado</span>
+        <span class="full-date">30 de enero, 2027</span>
+      </div>
+    </div>
+
+    <div class="time-row">
+      <div class="time-display">
+        <span class="time-digits">5:30</span>
+        <span class="time-meridiem">P.M.</span>
+      </div>
+    </div>
+
+    <p class="ceremony-address">Av. México 5-Puerta 4,<br>
+      El Mirador, 53050<br>
+      Naucalpan de Juárez, Méx.</p>
+
+    <div class="map-button-container">
+      <a href="https://maps.app.goo.gl/FCa5jsc9Puce5y368" target="_blank" rel="noopener noreferrer" class="map-btn">Ver mapa</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN DRESS CODE -->
+<section id="dressCodeSection" class="event-card-section">
+  <div class="event-canvas-card dress-code-card">
+    <!-- Título principal -->
+    <h2 class="dress-title-script">Dress</h2>
+    <p class="dress-title-code">CODE</p>
+    
+    <!-- Subtítulo Dress Code -->
+    <p class="dress-formal">Formal</p>
+    
+    <!-- Mensaje sobre el color reservado -->
+    <p class="dress-color-note">
+      Color rosa en todos los<br>tonos reservado para la<br>Quinceañera
+    </p>
+  </div>
+</section>
+
+<!-- Segunda Foto de la Quinceañera (Pantalla completa y animación lateral) -->
+<section id="photoSection2" class="photo-section">
+  <div class="photo-container">
+    <img src="imagenes/regalos3.jpeg" alt="Fotografía Quinceañera" class="photo-img">
+  </div>
+</section>
+
+<!-- SECCIÓN SUGERENCIA DE REGALOS -->
+<section id="giftsSection" class="event-card-section">
+  <div class="event-canvas-card gifts-card">
+    
+    <!-- Texto curvo en SVG -->
+    <div class="gifts-arch-container">
+      <svg viewBox="0 0 300 100" class="gifts-arch-svg">
+        <!-- Trayectoria de la curva -->
+        <path id="textCurve" d="M 40,60 A 110,75 0 0,1 260,80" fill="transparent" />
+        <text class="gifts-arch-text">
+          <textPath href="#textCurve" startOffset="50%" text-anchor="middle">
+            SUGERENCIA DE
+          </textPath>
+        </text>
+      </svg>
+    </div>
+
+    <!-- Título principal -->
+    <h2 class="gifts-main-title">Regalos</h2>
+    
+    <!-- Frase descriptiva -->
+    <p class="gifts-phrase">
+      Tu presencia es el mejor regalo
+      <br>pero si gustas dar un detalle 
+      <br>te dejo estas opciones:
+    </p>
+
+    <!-- Subtítulo en mayúsculas -->
+    <p class="gifts-options-badge">• SOBRE O REGALO</p>
+
+    <!-- Nota informativa -->
+    <p class="gifts-note">
+      El día del evento habrá <br>un buzón de sobres y con gusto 
+      <br>recibiré todos los detalles.
+    </p>
+
+  </div>
+</section>
+
+<!-- SECCIÓN TE ESPERO Y CONFIRMACIÓN -->
+<section id="waitSection" class="event-card-section">
+  <div class="event-canvas-card wait-card">
+    
+    <!-- Imagen de la corona/tiara de Canva -->
+    <img src="imagenes/tiara.png" alt="Corona" class="wait-tiara-img">
+
+    <!-- Encabezados -->
+    <h2 class="wait-title-main">TE ESPERO</h2>
+    <p class="wait-title-script">En el gran día</p>
+    
+    <!-- Mensaje de agradecimiento en 3 líneas -->
+    <p class="wait-message">
+      Agradezco a mis padres por su amor y apoyo<br>
+      ¡Espero verte para vivir juntos<br>
+      este hermoso momento!
+    </p>
+
+    <!-- Botón de confirmación vía WhatsApp -->
+    <div class="rsvp-button-container">
+      <a href="https://wa.me/525618356009?text=Hola,%20confirmo%20mi%20asistencia%20para%20los%20XV%20a%C3%B1os%20de%20Xime"
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="rsvp-btn">
+        Confirmar asistencia
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECCIÓN FINAL DE CIERRE (MIS XV AÑOS - XIMENA) -->
+<section id="footerSection" class="event-card-section">
+  <div class="event-canvas-card footer-card">
+    <p class="footer-xv-text">MIS XV AÑOS</p>
+    <h2 class="footer-name-text">Ximena</h2>
+  </div>
+</section>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+
