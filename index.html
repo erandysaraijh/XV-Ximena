@@ -139,10 +139,10 @@
     </p>
     
     <div class="heart-container">
-      <span class="heart-symbol">♥</span>
+      <span class="heart-symbol">♥&#xFE0E;</span>
     </div>
 
-    <p class="person-name">JUAN GARCÍA MAYA</p>
+    <p class="person-name">JUAN VALENTÍN<br> GARCÍA MAYA</p>
   </div>
 </div>
 
@@ -248,7 +248,7 @@
 <!-- Sección Nueva de la Foto (INDEPENDIENTE Y ABAJO) -->
 <section id="photoSection" class="photo-section">
   <div class="photo-container">
-    <img src="imagenes/xvaños.jpeg" alt="Fotografía" class="photo-img">
+    <img src="imagenes/xv.jpg" alt="Fotografía" class="photo-img">
   </div>
 </section>
 
@@ -302,7 +302,7 @@
 <!-- Segunda Foto de la Quinceañera (Pantalla completa y animación lateral) -->
 <section id="photoSection2" class="photo-section">
   <div class="photo-container">
-    <img src="imagenes/regalos3.jpeg" alt="Fotografía Quinceañera" class="photo-img">
+    <img src="imagenes/regalos4.jpg" alt="Fotografía Quinceañera" class="photo-img">
   </div>
 </section>
 
@@ -314,10 +314,11 @@
     <div class="gifts-arch-container">
       <svg viewBox="0 0 300 100" class="gifts-arch-svg">
         <!-- Trayectoria de la curva -->
-        <path id="textCurve" d="M 40,60 A 110,75 0 0,1 260,80" fill="transparent" />
+        <!-- Trayectoria con arco más suave (110,85) alineada ópticamente al óvalo -->
+    <path id="textCurve" d="M 35,82 A 115,85 0 0,1 265,82" fill="transparent" />
         <text class="gifts-arch-text">
-          <textPath href="#textCurve" startOffset="50%" text-anchor="middle">
-            SUGERENCIA DE
+          <textPath href="#textCurve" startOffset="52%" text-anchor="middle">
+            MESA DE
           </textPath>
         </text>
       </svg>
@@ -328,19 +329,18 @@
     
     <!-- Frase descriptiva -->
     <p class="gifts-phrase">
-      Tu presencia es el mejor regalo
-      <br>pero si gustas dar un detalle 
-      <br>te dejo estas opciones:
+      El mejor regalo que puedo
+      <br>tener es la alegría y el honor de
+      <br>compartir contigo este día tan 
+      <br>especial, pero si tú deseo es 
+      <br>obsequiarme algo puedes 
+      <br>hacerlo de la siguiente forma:
     </p>
 
     <!-- Subtítulo en mayúsculas -->
     <p class="gifts-options-badge">• SOBRE O REGALO</p>
 
-    <!-- Nota informativa -->
-    <p class="gifts-note">
-      El día del evento habrá <br>un buzón de sobres y con gusto 
-      <br>recibiré todos los detalles.
-    </p>
+    
 
   </div>
 </section>
@@ -365,13 +365,20 @@
 
     <!-- Botón de confirmación vía WhatsApp -->
     <div class="rsvp-button-container">
-      <a href="https://wa.me/525618356009?text=Hola,%20confirmo%20mi%20asistencia%20para%20los%20XV%20a%C3%B1os%20de%20Xime"
+      <a href="https://wa.me/525519257630?text=Hola,%20confirmo%20mi%20asistencia%20para%20los%20XV%20a%C3%B1os%20de%20Xime"
          target="_blank" 
          rel="noopener noreferrer" 
          class="rsvp-btn">
         Confirmar asistencia
       </a>
     </div>
+
+  
+
+<!-- Nota aclaratoria sobre el pase -->
+    <p class="rsvp-note">
+      *No puedes confirmar más personas de las indicadas en tu pase de entrada.
+    </p>
 
   </div>
 </section>
