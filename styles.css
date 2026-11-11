@@ -1260,6 +1260,16 @@ overflow: visible !important;
   max-width: 260px !important;
 }
 
+/* Negrita para la palabra reservada */
+.dress-code-card .dress-color-note strong {
+  font-weight: 900 !important;
+  font-style: italic !important; /* Conserva la inclinación cursiva si lo deseas */
+  color: #5a4038 !important;
+  text-shadow: 0px 0px 0.5px #5a4038 !important; /* Añade cuerpo extra al trazo */
+}
+
+
+
 /* ==========================================
    REGLA GENERAL PARA SECCIONES DE FOTO
    ========================================== */

@@ -207,6 +207,8 @@ if (photoSection2) {
   locationCeremonyObserver.observe(photoSection2);
 }
 
+
+
 const giftsSection = document.getElementById('giftsSection');
 if (giftsSection) {
   locationCeremonyObserver.observe(giftsSection);
